@@ -26,21 +26,21 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    func addNavBarButtonActions() {
+    private func addNavBarButtonActions() {
         notificationNavController.youButton.addTarget(self, action: #selector(youButttonTapped), for: .touchUpInside)
         notificationNavController.followingButton.addTarget(self, action: #selector(followingButtonTapped), for: .touchUpInside)
     }
     
     
     
-    func swipeViewRight() {
+    private func swipeViewRight() {
         UIView.animate(withDuration: 0.3) {
             self.notificationNavController.swipingLineView.frame.origin.x = self.view.frame.width * 0.5
         }
         notificationsContainerCollectionView.scrollToItem(at: IndexPath(item: 1, section: 0), at: .centeredHorizontally, animated: true)
     }
     
-    func swipeViewLeft() {
+    private func swipeViewLeft() {
         UIView.animate(withDuration: 0.3) {
             self.notificationNavController.swipingLineView.frame.origin.x = 0
         }
@@ -128,14 +128,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        print("StartingScroll")
-    }
     
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        print("DoneScrolling")
-       
-    }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
          print("Offset:", scrollView.contentOffset.x)
